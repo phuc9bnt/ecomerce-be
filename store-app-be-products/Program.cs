@@ -1,7 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using Persistence.DBContext;
-using store_app_be_users.TokenValidation;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,13 +5,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
-
-builder.Services.AddDbContext<UserDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MyConnection")));
-
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<Program>());
-
-builder.Services.AddScoped<ITokenValidationService, TokenValidationService>();
 
 var app = builder.Build();
 

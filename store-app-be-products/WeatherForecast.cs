@@ -1,4 +1,4 @@
-namespace store_app_be_portal
+namespace store_app_be_products
 {
     public class WeatherForecast
     {
